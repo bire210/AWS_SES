@@ -22,7 +22,7 @@ const sendEmail = async () => {
   try {
     // Specify the key (filename) of the object in your S3 bucket
     const s3ObjectKey = "0062bc3f-3dcc-4682-94a2-1fa017951e75.png";
-    // console.log("bucket name", BUCKET_NAME);
+
     // Download the file from S3
     const s3Object = await s3
       .getObject({ Bucket: BUCKET_NAME, Key: s3ObjectKey })
@@ -30,11 +30,11 @@ const sendEmail = async () => {
     // console.log("objetc ************************", s3Object);
     const mailOptions = {
       from: {
-        name: "Realtors",
+        name: "Email From AWS",
         address: "aman.maddhesia@furation.tech",
       },
       to: ["birendra.mahto@furation.tech"],
-      subject: "Test Email with attached",
+      subject: "Test Email with sending the  attached files",
       text: "Hello, This is a test email with attachments",
       html: "<b> Hello, This is a test email with attachments</b>",
       attachments: [
